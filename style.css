@@ -1,0 +1,48 @@
+/* Общие стили страницы */
+body { 
+    background-color: #f8fafc; 
+}
+
+/* Градиент для Hero секции */
+.hero-gradient { 
+    background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); 
+}
+
+/* Сетка карточек с адаптивностью */
+.card-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 480px) { 
+    .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } 
+}
+
+@media (min-width: 768px) { 
+    .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } 
+}
+
+@media (min-width: 1024px) { 
+    .card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } 
+}
+
+@media (min-width: 1280px) { 
+    .card-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } 
+}
+
+/* Стили для горизонтального меню категорий */
+/* Скрываем стандартный скроллбар для эстетики, при этом сохраняя прокрутку */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Эффекты при наведении (дополнение к Tailwind) */
+.group:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mikrozajmy.github.io/sitemap.xml
