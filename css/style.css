@@ -41,7 +41,7 @@
 
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 body {
   font-family: var(--font);
   background: var(--gray-50);
@@ -51,7 +51,7 @@ body {
 }
 a { color: var(--blue); text-decoration: none; }
 a:hover { text-decoration: underline; }
-img { max-width: 100%; }
+img { max-width: 100%; height: auto; }
 ul { list-style: none; }
 
 /* ---- Layout ---- */
@@ -725,6 +725,24 @@ ul { list-style: none; }
 }
 .sidebar-widget-title { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 14px; }
 
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sidebar-nav a {
+  font-size: 13px;
+  color: var(--gray-600);
+  padding: 8px 6px;
+  border-radius: var(--radius-sm);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  transition: color .15s, background .15s;
+}
+.sidebar-nav a:first-child { color: var(--blue); font-weight: 600; }
+.sidebar-nav a:hover { color: var(--blue); background: var(--blue-light); text-decoration: none; }
+
 /* Inline offer widget inside articles */
 .article-offers-widget {
   background: linear-gradient(135deg, #f0f7ff 0%, #e8f5e9 100%);
@@ -924,11 +942,11 @@ ul { list-style: none; }
   }
   .offer-legal { display: none; }
   .offer-name { font-size: 15px; white-space: normal; }
-  .btn-get { min-width: 115px; font-size: 13px; padding: 9px 18px; }
+  .btn-get { min-width: 115px; min-height: 44px; font-size: 13px; padding: 9px 18px; }
 
   /* Category tabs */
   .cat-tabs-bar { gap: 6px; }
-  .cat-tab { padding: 8px 14px; font-size: 13px; }
+  .cat-tab { padding: 8px 14px; font-size: 13px; min-height: 44px; }
 
   /* Blog */
   .blog-grid { grid-template-columns: 1fr; }
@@ -938,15 +956,23 @@ ul { list-style: none; }
   .filter-btn { font-size: 12px; padding: 6px 12px; }
 
   /* Article */
-  .article-body h1 { font-size: clamp(20px, 5vw, 28px); }
-  .article-body h2 { font-size: 18px; margin: 24px 0 12px; }
-  .article-body h3 { font-size: 16px; margin: 18px 0 8px; }
-  .article-body p, .article-body li { font-size: 14px; }
+  .article-body { overflow-x: hidden; }
+  .article-body h1 { font-size: clamp(22px, 5.5vw, 30px); }
+  .article-body h2 { font-size: 20px; margin: 24px 0 12px; }
+  .article-body h3 { font-size: 17px; margin: 18px 0 8px; }
+  .article-body p, .article-body li { font-size: 16px; }
 
-  /* Widget offers in articles */
-  .widget-offer { flex-wrap: wrap; gap: 10px; }
-  .widget-offer-info { min-width: 0; flex: 1 1 160px; }
-  .widget-offer-btn { flex: 0 0 auto; }
+  /* Widget offers — vertical stack with full-width 44px tap target */
+  .widget-offer { flex-direction: column; align-items: stretch; gap: 8px; }
+  .widget-offer-info { min-width: 0; }
+  .widget-offer-btn {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
   /* Page hero — override any inline padding */
   .page-hero { padding: 28px 0 32px !important; }
@@ -978,17 +1004,16 @@ ul { list-style: none; }
   .blog-card-excerpt { font-size: 12px; }
   .blog-card-meta { font-size: 11px; gap: 8px; }
 
-  .article-body h1 { font-size: clamp(18px, 6vw, 24px); }
-  .article-body h2 { font-size: 16px; }
-  .article-body h3 { font-size: 15px; }
-  .article-body p, .article-body li { font-size: 13px; line-height: 1.7; }
+  .article-body h1 { font-size: clamp(22px, 6.5vw, 26px); }
+  .article-body h2 { font-size: 20px; }
+  .article-body h3 { font-size: 17px; }
+  .article-body p, .article-body li { font-size: 16px; line-height: 1.75; }
 
-  .widget-offer { padding: 10px 12px; flex-direction: column; align-items: flex-start; }
+  .widget-offer { padding: 10px 12px; }
   .widget-offer-logo { width: 40px; height: 30px; font-size: 8px; }
-  .widget-offer-name { font-size: 13px; }
-  .widget-offer-params { font-size: 11px; }
-  .widget-offer-btn { width: 100%; text-align: center; }
-  .widget-offer-btn a { width: 100%; display: block; }
+  .widget-offer-name { font-size: 14px; }
+  .widget-offer-params { font-size: 12px; }
+  .widget-offer-btn { min-height: 44px; }
 
   .article-offers-widget { padding: 16px 14px; }
   .widget-title { font-size: 14px; }

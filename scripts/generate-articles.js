@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * Эвора Финанс — AI SEO Article Generator
  *
@@ -218,14 +218,14 @@ function buildPage(topic, offersData, parsed, date) {
       </div>
       <div class="sidebar-widget">
         <div class="sidebar-widget-title">📚 Разделы сайта</div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <a href="/blog/" style="font-size:13px;color:var(--blue);">← Все статьи</a>
-          <a href="/" style="font-size:13px;color:var(--gray-600);">МФО и займы</a>
-          <a href="/karty/" style="font-size:13px;color:var(--gray-600);">Кредитные карты</a>
-          <a href="/kredity/" style="font-size:13px;color:var(--gray-600);">Кредиты наличными</a>
-          <a href="/kredity-pod-zalog-nedvizhimosti/" style="font-size:13px;color:var(--gray-600);">Кредит под залог</a>
-          <a href="/rko/" style="font-size:13px;color:var(--gray-600);">РКО для бизнеса</a>
-        </div>
+        <nav class="sidebar-nav">
+          <a href="/blog/">← Все статьи</a>
+          <a href="/">МФО и займы</a>
+          <a href="/karty/">Кредитные карты</a>
+          <a href="/kredity/">Кредиты наличными</a>
+          <a href="/kredity-pod-zalog-nedvizhimosti/">Кредит под залог</a>
+          <a href="/rko/">РКО для бизнеса</a>
+        </nav>
       </div>
     </aside>
   </div>
