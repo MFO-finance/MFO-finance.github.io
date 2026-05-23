@@ -1,0 +1,23 @@
+{
+  "name": "evora-finance",
+  "version": "1.0.0",
+  "description": "Evora Finance — финансовый агрегатор МФО, карт, РКО и кредитов",
+  "private": true,
+  "scripts": {
+    "sitemap": "node scripts/build-sitemap.js",
+    "generate": "node scripts/generate-articles.js",
+    "generate:continuous": "node scripts/generate-continuous.js",
+    "indexnow": "node scripts/indexnow.js",
+    "indexnow:yandex": "node scripts/indexnow.js --yandex-only",
+    "indexnow:bing": "node scripts/indexnow.js --bing-only",
+    "build": "npm run sitemap",
+    "predeploy": "npm run sitemap"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
