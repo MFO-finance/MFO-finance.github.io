@@ -355,6 +355,7 @@ function buildPage(topic, offersData, parsed, date) {
         <a href="/kredity/">Кредиты</a>
         <a href="/kredity-pod-zalog-nedvizhimosti/">Залог</a>
         <a href="/rko/">РКО</a>
+        <a href="/mikrozaymy/">Микрозаймы</a>
         <a href="/blog/" class="active">Блог</a>
       </nav>
       <div class="header-badge">Обновлено сегодня</div>
@@ -409,7 +410,7 @@ function buildPage(topic, offersData, parsed, date) {
       <div>
         <div class="footer-col-title">Продукты</div>
         <div class="footer-links">
-          <a href="/">МФО</a><a href="/karty/">Карты</a><a href="/kredity/">Кредиты</a>
+          <a href="/">МФО</a><a href="/mikrozaymy/">Микрозаймы</a><a href="/karty/">Карты</a><a href="/kredity/">Кредиты</a>
           <a href="/kredity-pod-zalog-nedvizhimosti/">Залог</a><a href="/rko/">РКО</a>
         </div>
       </div>
