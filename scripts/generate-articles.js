@@ -17,6 +17,7 @@
 const fs       = require('fs');
 const path     = require('path');
 const Anthropic = require('@anthropic-ai/sdk');
+const { generateCover } = require('./generate-covers');
 
 /* ─── Config ─────────────────────────────────────────────────── */
 const BASE_URL        = 'https://mfo-finance.github.io';
@@ -153,6 +154,7 @@ function buildPage(topic, offersData, parsed, date) {
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${BASE_URL}/blog/${topic.slug}/">
   <meta property="og:type" content="article">
+  <meta property="og:image" content="${BASE_URL}/blog/${topic.slug}/cover.png">
   <meta property="article:published_time" content="${date}T10:00:00+03:00">
   <meta property="article:modified_time" content="${date}T10:00:00+03:00">
   <script type="application/ld+json">
@@ -167,6 +169,7 @@ function buildPage(topic, offersData, parsed, date) {
     "publisher": {"@type": "Organization", "name": "Evora Finance", "url": "${BASE_URL}"}
   }
   </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -390,6 +393,9 @@ async function generateArticle(topic, offersData, txtGroups) {
   const dir = path.join(BLOG_DIR, topic.slug);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'index.html'), fullHtml, 'utf8');
+
+  // Generate cover image
+  await generateCover(parsed.title, topic.target_offer_category, path.join(dir, 'cover.png'));
 
   console.log(`   ✅ Saved  | title: ${parsed.title.slice(0, 60)}`);
   return `${BASE_URL}/blog/${topic.slug}/`;

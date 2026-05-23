@@ -19,6 +19,20 @@ const path      = require('path');
 const { execSync } = require('child_process');
 const Anthropic  = require('@anthropic-ai/sdk');
 
+/* ─── Find git executable (supports GitHub Desktop installation) ── */
+const GIT_PATHS = [
+  'git',
+  'C:\\Users\\user\\AppData\\Local\\GitHubDesktop\\app-3.5.6\\resources\\app\\git\\cmd\\git.exe',
+  'C:\\Program Files\\Git\\bin\\git.exe',
+];
+function findGit() {
+  for (const p of GIT_PATHS) {
+    try { execSync(`"${p}" --version`, { stdio: 'pipe' }); return p; } catch {}
+  }
+  throw new Error('git not found');
+}
+const GIT = findGit();
+
 /* ─── Config ─────────────────────────────────────────────────── */
 const BASE_URL         = 'https://mfo-finance.github.io';
 const ROOT             = path.resolve(__dirname, '..');
@@ -322,9 +336,9 @@ function buildPage(keyword, slug, category, offersData, parsed, date) {
 /* ─── Git commit + push ───────────────────────────────────────── */
 function gitCommitPush(slug, keyword) {
   try {
-    execSync(`git add blog/${slug}/ sitemap.xml blog/index.html`, { cwd: ROOT, stdio: 'pipe' });
-    execSync(`git commit -m "feat: статья — ${keyword.slice(0, 60)}"`, { cwd: ROOT, stdio: 'pipe' });
-    execSync('git push', { cwd: ROOT, stdio: 'pipe' });
+    execSync(`"${GIT}" add "blog/${slug}/" sitemap.xml "blog/index.html"`, { cwd: ROOT, stdio: 'pipe' });
+    execSync(`"${GIT}" commit -m "feat: статья — ${keyword.slice(0, 60)}"`, { cwd: ROOT, stdio: 'pipe' });
+    execSync(`"${GIT}" push`, { cwd: ROOT, stdio: 'pipe' });
     console.log('   📤 Pushed to GitHub');
   } catch (e) {
     console.error('   ⚠️  Git error:', e.message.slice(0, 120));
@@ -451,7 +465,6 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function main() {
   const offersData = JSON.parse(fs.readFileSync(OFFERS_FILE, 'utf8'));
   const { submitUrls } = require('./indexnow');
-  const buildSitemap   = require('./build-sitemap');
 
   const keywords = fs.readFileSync(KEYWORDS_TXT, 'utf8')
     .split('\n').map(l => l.trim()).filter(Boolean);
@@ -505,7 +518,8 @@ async function main() {
 
       // Rebuild blog index and sitemap
       rebuildBlogIndex();
-      buildSitemap();
+      delete require.cache[require.resolve('./build-sitemap')];
+      require('./build-sitemap');
 
       // Commit and push
       gitCommitPush(slug, keyword);

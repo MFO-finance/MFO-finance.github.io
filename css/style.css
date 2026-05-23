@@ -691,6 +691,9 @@ ul { list-style: none; }
 .blog-card-title a:hover { color: var(--blue); text-decoration: none; }
 .blog-card-excerpt { font-size: 13px; color: var(--gray-500); line-height: 1.6; margin-bottom: 14px; }
 .blog-card-meta { font-size: 12px; color: var(--gray-400); display: flex; align-items: center; gap: 12px; }
+.blog-card-cover { width: 100%; aspect-ratio: 1200/630; overflow: hidden; background: #0d1527; }
+.blog-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.blog-card:hover .blog-card-cover img { transform: scale(1.03); }
 
 /* =========================================
    ARTICLE PAGE
@@ -823,43 +826,133 @@ ul { list-style: none; }
 /* =========================================
    RESPONSIVE
    ========================================= */
+
+/* ── Tablet (≤1024px) ── */
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .article-layout { grid-template-columns: 1fr; }
   .article-sidebar { position: static; }
+  .offer-card { grid-template-columns: 56px 1fr auto; }
+  .offer-params { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 }
 
+/* ── Mobile (≤768px) ── */
 @media (max-width: 768px) {
-  .site-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy-dark); flex-direction: column; padding: 12px; gap: 2px; }
+  /* Navigation */
+  .site-nav {
+    display: none;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--navy-dark);
+    flex-direction: column;
+    padding: 8px 12px 16px;
+    gap: 2px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    z-index: 99;
+  }
   .site-nav.open { display: flex; }
-  .site-nav a { padding: 10px 14px; border-radius: var(--radius-sm); }
+  .site-nav a { padding: 11px 14px; border-radius: var(--radius-sm); font-size: 15px; }
   .burger { display: flex; }
   .header-badge { display: none; }
 
+  /* Hero */
+  .hero { padding: 36px 0 44px; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-stats { flex-direction: row; flex-wrap: wrap; }
-  .stat-card { flex: 1; min-width: 100px; }
+  .stat-card { flex: 1; min-width: 110px; }
+  .hero-title { font-size: clamp(24px, 6vw, 38px); }
+  .hero-features { gap: 6px; }
+  .hero-feature { font-size: 12px; padding: 5px 10px; }
 
-  .offer-card { grid-template-columns: 48px 1fr; gap: 14px; }
+  /* Page hero */
+  .page-hero { padding: 28px 0 32px; }
+  .page-hero-title { font-size: clamp(22px, 5vw, 32px); }
+  .page-hero-subtitle { font-size: 14px; }
+
+  /* Container */
+  .container { padding: 0 16px; }
+  .section { padding: 36px 0; }
+
+  /* Offer cards */
+  .offer-card {
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
   .offer-params { display: none; }
-  .offer-action { flex-direction: row; align-items: center; grid-column: 1 / -1; }
+  .offer-action {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1 / -1;
+  }
   .offer-legal { display: none; }
+  .offer-name { font-size: 15px; white-space: normal; }
+  .btn-get { min-width: 115px; font-size: 13px; padding: 9px 18px; }
 
+  /* Blog */
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-card-title { font-size: 15px; }
+  .filters-bar { padding: 12px 14px; }
+  .filters-row { gap: 6px; }
+  .filter-btn { font-size: 12px; padding: 6px 12px; }
+
+  /* Article */
+  .article-body h1 { font-size: clamp(20px, 5vw, 28px); }
+  .article-body h2 { font-size: 18px; margin: 24px 0 12px; }
+  .article-body h3 { font-size: 16px; margin: 18px 0 8px; }
+  .article-body p, .article-body li { font-size: 14px; }
+  .article-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .article-body th, .article-body td { padding: 8px 10px; font-size: 13px; white-space: nowrap; }
+
+  /* Widget offers in articles */
+  .widget-offer { flex-wrap: wrap; gap: 10px; }
+  .widget-offer-info { min-width: 0; flex: 1 1 160px; }
+  .widget-offer-btn { flex: 0 0 auto; }
+
+  /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .trust-bar-inner { gap: 14px; }
   .steps-grid, .advantages-grid { grid-template-columns: 1fr; }
-  .blog-grid { grid-template-columns: 1fr; }
-  .filters-bar { padding: 14px 16px; }
-  .section { padding: 40px 0; }
 
-  .compare-table { font-size: 13px; }
-  .compare-table th, .compare-table td { padding: 10px 10px; }
+  /* Tables */
+  .compare-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare-table th, .compare-table td { padding: 9px 10px; font-size: 13px; white-space: nowrap; }
 }
 
+/* ── Small phones (≤480px) ── */
 @media (max-width: 480px) {
-  .hero { padding: 36px 0 40px; }
-  .hero-features { gap: 6px; }
-  .hero-feature { font-size: 12px; padding: 5px 10px; }
-  .offer-name { font-size: 15px; }
-  .btn-get { min-width: 110px; font-size: 13px; padding: 9px 16px; }
+  .container { padding: 0 14px; }
+  .hero { padding: 28px 0 36px; }
+  .hero-title { font-size: clamp(22px, 7vw, 30px); }
+
+  .offer-card { padding: 14px 12px; gap: 10px; }
+  .offer-logo { width: 44px; height: 36px; font-size: 10px; }
+  .offer-name { font-size: 14px; }
+  .offer-tagline { font-size: 12px; }
+  .btn-get { min-width: 100px; font-size: 12px; padding: 8px 14px; }
+
+  .blog-card-body { padding: 16px; }
+  .blog-card-title { font-size: 14px; }
+  .blog-card-excerpt { font-size: 12px; }
+  .blog-card-meta { font-size: 11px; gap: 8px; }
+
+  .article-body h1 { font-size: clamp(18px, 6vw, 24px); }
+  .article-body h2 { font-size: 16px; }
+  .article-body h3 { font-size: 15px; }
+  .article-body p, .article-body li { font-size: 13px; line-height: 1.7; }
+
+  .widget-offer { padding: 10px 12px; }
+  .widget-offer-logo { width: 40px; height: 30px; font-size: 8px; }
+  .widget-offer-name { font-size: 13px; }
+  .widget-offer-params { font-size: 11px; }
+
+  .article-offers-widget { padding: 16px 14px; }
+  .widget-title { font-size: 14px; }
+
+  .page-hero-title { font-size: clamp(20px, 7vw, 28px); }
+  .page-hero-subtitle { font-size: 13px; }
+
+  .sidebar-widget { padding: 16px; }
+  .section { padding: 28px 0; }
+  .section-title { font-size: clamp(20px, 6vw, 26px); }
 }
