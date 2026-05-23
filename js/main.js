@@ -165,8 +165,20 @@ function initFAQ() {
   });
 }
 
+/* ---- Wrap article tables for mobile horizontal scroll ---- */
+function initTableScroll() {
+  document.querySelectorAll('.article-body table').forEach(function(table) {
+    if (table.parentNode.classList.contains('table-scroll')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'table-scroll';
+    table.parentNode.insertBefore(wrap, table);
+    wrap.appendChild(table);
+  });
+}
+
 /* ---- Init ---- */
 document.addEventListener('DOMContentLoaded', () => {
   initBurger();
   initFAQ();
+  initTableScroll();
 });

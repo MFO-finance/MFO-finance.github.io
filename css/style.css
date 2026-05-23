@@ -823,6 +823,10 @@ ul { list-style: none; }
 .mb-1 { margin-bottom: 8px; } .mb-2 { margin-bottom: 16px; } .mb-3 { margin-bottom: 24px; }
 .d-none { display: none; }
 
+/* ---- Table scroll wrapper (set by JS for article tables) ---- */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
+.table-scroll table { margin-bottom: 0; min-width: 480px; }
+
 /* =========================================
    RESPONSIVE
    ========================================= */
@@ -901,13 +905,14 @@ ul { list-style: none; }
   .article-body h2 { font-size: 18px; margin: 24px 0 12px; }
   .article-body h3 { font-size: 16px; margin: 18px 0 8px; }
   .article-body p, .article-body li { font-size: 14px; }
-  .article-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .article-body th, .article-body td { padding: 8px 10px; font-size: 13px; white-space: nowrap; }
 
   /* Widget offers in articles */
   .widget-offer { flex-wrap: wrap; gap: 10px; }
   .widget-offer-info { min-width: 0; flex: 1 1 160px; }
   .widget-offer-btn { flex: 0 0 auto; }
+
+  /* Page hero — override any inline padding */
+  .page-hero { padding: 28px 0 32px !important; }
 
   /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -941,10 +946,12 @@ ul { list-style: none; }
   .article-body h3 { font-size: 15px; }
   .article-body p, .article-body li { font-size: 13px; line-height: 1.7; }
 
-  .widget-offer { padding: 10px 12px; }
+  .widget-offer { padding: 10px 12px; flex-direction: column; align-items: flex-start; }
   .widget-offer-logo { width: 40px; height: 30px; font-size: 8px; }
   .widget-offer-name { font-size: 13px; }
   .widget-offer-params { font-size: 11px; }
+  .widget-offer-btn { width: 100%; text-align: center; }
+  .widget-offer-btn a { width: 100%; display: block; }
 
   .article-offers-widget { padding: 16px 14px; }
   .widget-title { font-size: 14px; }

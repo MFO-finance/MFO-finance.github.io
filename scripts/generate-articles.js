@@ -198,7 +198,7 @@ function buildPage(topic, offersData, parsed, date) {
   </div>
 </header>
 
-<section class="page-hero" style="padding:32px 0 40px;">
+<section class="page-hero">
   <div class="container">
     <div class="page-hero-breadcrumb">
       <a href="/">Главная</a><span>/</span><a href="/blog/">Блог</a><span>/</span>Статья
