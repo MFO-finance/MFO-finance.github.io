@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evora Finance — МФО 2026: займ онлайн на карту срочно без отказа</title>
+  <title>Эвора Финанс — МФО 2026: займ онлайн на карту срочно без отказа</title>
   <meta name="description" content="Лучшие МФО 2026 года — сравните 83 проверённых предложения. Займ онлайн на карту за 5 минут без отказа и без справок. 0% первый займ. Реестр ЦБ РФ.">
   <meta name="keywords" content="МФО 2026, займ онлайн, микрозайм на карту, займ без отказа, займ срочно, 0 процентов займ">
   <link rel="canonical" href="https://mfo-finance.github.io/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Evora Finance — МФО 2026: займ онлайн без отказа">
+  <meta property="og:title" content="Эвора Финанс — МФО 2026: займ онлайн без отказа">
   <meta property="og:description" content="83 проверённых МФО с лицензией ЦБ. Получи деньги на карту за 5 минут. 0% первый займ.">
   <meta property="og:url" content="https://mfo-finance.github.io/">
   <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
   {
     "@context": "https://schema.org",
     "@type": "FinancialService",
-    "name": "Evora Finance",
+    "name": "Эвора Финанс",
     "description": "Финансовый агрегатор МФО, кредитных карт, РКО и кредитов под залог недвижимости",
     "url": "https://mfo-finance.github.io/",
     "areaServed": "RU",
@@ -43,8 +43,8 @@
   <div class="container">
     <div class="header-inner">
       <a href="/" class="logo">
-        <div class="logo-icon">E</div>
-        <div class="logo-text">Evora <span>Finance</span></div>
+        <div class="logo-icon">Э</div>
+        <div class="logo-text">Эвора <span>Финанс</span></div>
       </a>
       <nav class="site-nav">
         <a href="/" class="active">МФО</a>
@@ -100,7 +100,7 @@
   <div class="container">
     <div class="trust-bar-inner">
       <div class="trust-item"><span class="icon">🛡️</span> Только МФО из реестра ЦБ РФ</div>
-      <div class="trust-item"><span class="icon">✅</span> Проверено экспертами Evora Finance</div>
+      <div class="trust-item"><span class="icon">✅</span> Проверено экспертами Эвора Финанс</div>
       <div class="trust-item"><span class="icon">🔄</span> Данные обновляются ежедневно</div>
       <div class="trust-item"><span class="icon">🆓</span> Сервис бесплатен для заёмщиков</div>
     </div>
@@ -109,7 +109,17 @@
 
 <!-- MAIN CONTENT -->
 <div class="container section">
-  <div class="filters-bar">
+
+  <!-- Вкладки категорий -->
+  <div class="cat-tabs-bar">
+    <button class="cat-tab active" data-cat="mfo">💸 МФО и займы</button>
+    <button class="cat-tab" data-cat="cards">💳 Кредитные карты</button>
+    <button class="cat-tab" data-cat="credits">🏦 Кредиты</button>
+    <button class="cat-tab" data-cat="mortgage">🏠 Залог</button>
+    <button class="cat-tab" data-cat="rko">💼 РКО</button>
+  </div>
+
+  <div class="filters-bar" id="sort-bar">
     <div class="filters-title">Сортировка</div>
     <div class="filters-row">
       <button class="filter-btn active" data-sort="featured">Лучшие предложения</button>
@@ -120,8 +130,7 @@
   </div>
 
   <div class="offers-list" id="offers-list">
-    <!-- Динамически загружается из /src/data/offers.json -->
-    <noscript><p>Включите JavaScript для просмотра предложений МФО.</p></noscript>
+    <noscript><p>Включите JavaScript для просмотра предложений.</p></noscript>
   </div>
 </div>
 
@@ -229,8 +238,8 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <div class="logo-icon">E</div>
-          <div class="logo-text" style="color:var(--white)">Evora <span style="color:#60a5fa">Finance</span></div>
+          <div class="logo-icon">Э</div>
+          <div class="logo-text" style="color:var(--white)">Эвора <span style="color:#60a5fa">Финанс</span></div>
         </div>
         <p class="footer-desc">Независимый финансовый агрегатор. Помогаем сравнить предложения МФО, банков и финансовых сервисов для принятия взвешенного решения.</p>
         <div class="footer-contact">Email: info@evora-finance.ru</div>
@@ -268,7 +277,7 @@
         <strong>Важно:</strong> Сайт не является финансовой организацией, не выдаёт кредиты и не берёт плату за услуги. Вся информация носит исключительно ознакомительный характер и не является публичной офертой. Условия финансовых продуктов могут быть изменены организациями-партнёрами в одностороннем порядке. Перед оформлением займа или кредита внимательно изучите договор. Все товарные знаки принадлежат их правообладателям. Сайт содержит информацию, предназначенную для лиц старше 18 лет. <strong>18+</strong>
       </p>
       <div class="footer-copy">
-        <span>© 2026 Evora Finance. Все права защищены.</span>
+        <span>© 2026 Эвора Финанс. Все права защищены.</span>
         <a href="https://cbr.ru/microfinance/registry/" target="_blank" rel="noopener">Проверить МФО в реестре ЦБ</a>
       </div>
     </div>
@@ -279,6 +288,7 @@
 <script>
   loadAndRenderOffers('offers-list', 'mfo');
   initFilters('mfo');
+  initCategoryTabs();
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 /**
- * Evora Finance — AI SEO Article Generator
+ * Эвора Финанс — AI SEO Article Generator
  *
  * Reads topics from src/data/keywords.json, enriches prompts with
  * LSI keywords from keywords.txt, calls Anthropic API, injects offer widgets,
@@ -165,8 +165,8 @@ function buildPage(topic, offersData, parsed, date) {
     "description": "${description.replace(/"/g, '\\"')}",
     "datePublished": "${date}",
     "dateModified": "${date}",
-    "author": {"@type": "Organization", "name": "Evora Finance"},
-    "publisher": {"@type": "Organization", "name": "Evora Finance", "url": "${BASE_URL}"}
+    "author": {"@type": "Organization", "name": "Эвора Финанс"},
+    "publisher": {"@type": "Organization", "name": "Эвора Финанс", "url": "${BASE_URL}"}
   }
   </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -181,7 +181,7 @@ function buildPage(topic, offersData, parsed, date) {
   <div class="container">
     <div class="header-inner">
       <a href="/" class="logo">
-        <div class="logo-icon">E</div>
+        <div class="logo-icon">Э</div>
         <div class="logo-text">Evora <span>Finance</span></div>
       </a>
       <nav class="site-nav">
@@ -236,7 +236,7 @@ function buildPage(topic, offersData, parsed, date) {
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <div class="logo-icon">E</div>
+          <div class="logo-icon">Э</div>
           <div class="logo-text" style="color:var(--white)">Evora <span style="color:#60a5fa">Finance</span></div>
         </div>
         <p class="footer-desc">Независимый финансовый агрегатор.</p>
@@ -253,7 +253,7 @@ function buildPage(topic, offersData, parsed, date) {
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">Сайт не является финансовой организацией, не выдаёт кредиты и не берёт плату за услуги. Информация носит ознакомительный характер. Все товарные знаки принадлежат их правообладателям. <strong>18+</strong></p>
-      <div class="footer-copy"><span>© 2026 Evora Finance</span></div>
+      <div class="footer-copy"><span>© 2026 Эвора Финанс</span></div>
     </div>
   </div>
 </footer>
@@ -295,7 +295,7 @@ function buildPrompt(topic, lsiKeywords) {
     .map(l => `<a href="${l.href}">${l.anchor}</a>`)
     .join(', ');
 
-  return `Ты — профессиональный финансовый аналитик, экспертный копирайтер и топовый SEO-оптимизатор (уровень Senior). Твоя цель — писать экспертные, живые и конвертящие статьи для финансового агрегатора "Evora Finance", оптимизированные под требования Яндекса (YMYL, E-A-T, Баден-Баден) и коммерческий интент 2026 года.
+  return `Ты — профессиональный финансовый аналитик, экспертный копирайтер и топовый SEO-оптимизатор (уровень Senior). Твоя цель — писать экспертные, живые и конвертящие статьи для финансового агрегатора "Эвора Финанс", оптимизированные под требования Яндекса (YMYL, E-A-T, Баден-Баден) и коммерческий интент 2026 года.
 
 ### НАШ КЛЮЧЕВОЙ ЗАПРОС ДЛЯ ТЕКУЩЕЙ СТАТЬИ:
 "${topic.main_keyword}" (Категория: ${category})
@@ -412,7 +412,7 @@ async function main() {
   if (LIMIT)    topics = topics.slice(0, LIMIT);
   if (!topics.length) { console.error('No matching topics.'); process.exit(1); }
 
-  console.log(`\n🚀 Evora Finance Article Generator`);
+  console.log(`\n🚀 Эвора Финанс Article Generator`);
   console.log(`   Model  : ${MODEL}`);
   console.log(`   Topics : ${topics.length}`);
   console.log(`   LSI pool: mfo=${txtGroups.mfo.length} cards=${txtGroups.cards.length} credits=${txtGroups.credits.length}`);

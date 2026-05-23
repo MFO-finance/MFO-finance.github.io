@@ -165,6 +165,24 @@ function initFAQ() {
   });
 }
 
+/* ---- Category tabs on main page ---- */
+function initCategoryTabs() {
+  var currentCat = 'mfo';
+  document.querySelectorAll('.cat-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      if (tab.dataset.cat === currentCat) return;
+      currentCat = tab.dataset.cat;
+      document.querySelectorAll('.cat-tab').forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      var first = document.querySelector('#sort-bar .filter-btn');
+      if (first) first.classList.add('active');
+      loadAndRenderOffers('offers-list', currentCat);
+      initFilters(currentCat);
+    });
+  });
+}
+
 /* ---- Wrap article tables for mobile horizontal scroll ---- */
 function initTableScroll() {
   document.querySelectorAll('.article-body table').forEach(function(table) {
